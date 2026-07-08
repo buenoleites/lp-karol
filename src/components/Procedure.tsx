@@ -1,13 +1,14 @@
 import { procedure } from '../data/content';
-import { Placeholder } from './Placeholder';
+import ultraformerPhoto from '../assets/ultraformer.png';
 
 export function Procedure() {
   return (
     <section id="o-que-e" className="bg-nude py-24 max-[640px]:py-16">
       <div className="container-page grid grid-cols-[minmax(0,0.55fr)_minmax(0,1fr)] items-center gap-12 max-[760px]:grid-cols-1 max-[760px]:gap-6">
-        <Placeholder
-          label={procedure.photoPlaceholder}
-          className="aspect-square rounded max-[760px]:order-first max-[760px]:max-w-[220px]"
+        <img
+          src={ultraformerPhoto}
+          alt={procedure.photoPlaceholder}
+          className="aspect-square rounded object-cover object-[20%_25%] max-[760px]:order-first max-[760px]:max-w-[220px]"
         />
         <div>
           <span className="eyebrow">{procedure.eyebrow}</span>
