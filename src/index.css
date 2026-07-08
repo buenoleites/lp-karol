@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-offwhite text-graphite font-sans antialiased;
+}
+
+h1,
+h2,
+h3,
+blockquote {
+  @apply font-serif font-medium text-wine tracking-tight;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto max-w-content px-6;
+  }
+
+  .btn {
+    @apply inline-block rounded-full px-8 py-4 font-sans font-semibold text-[0.95rem] text-center transition-all duration-200;
+  }
+
+  .btn-primary {
+    @apply btn bg-marsala text-offwhite hover:bg-wine hover:-translate-y-px;
+  }
+
+  .btn-primary-inverted {
+    @apply btn bg-champagne text-wine hover:bg-offwhite;
+  }
+
+  .eyebrow {
+    @apply mb-4 inline-block text-xs font-semibold uppercase tracking-[0.12em] text-marsala;
+  }
+
+  .eyebrow-light {
+    @apply text-champagne;
+  }
+
+  .section-heading {
+    @apply mb-14 max-w-xl;
+  }
+
+  .section-heading-center {
+    @apply mx-auto max-w-2xl text-center;
+  }
+
+  .section-subtitle {
+    @apply text-[1.05rem] opacity-80;
+  }
+}
