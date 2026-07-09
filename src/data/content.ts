@@ -50,7 +50,7 @@ export const stats = {
     { number: '[XX%]', label: 'das pacientes relatam alta satisfação com o resultado' },
     { number: '[XXX+]', label: 'avaliações e protocolos individualizados conduzidos' },
   ],
-  photoPlaceholder: 'Detalhe de atendimento/consultório',
+  photoPlaceholder: 'Detalhe da recepção do consultório',
   note: '*Números a confirmar com a Dra. Karol antes da publicação.',
 } as const;
 

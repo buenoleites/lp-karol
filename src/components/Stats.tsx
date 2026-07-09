@@ -1,5 +1,5 @@
 import { stats } from '../data/content';
-import { Placeholder } from './Placeholder';
+import recepcaoPhoto from '../assets/recepcao1.png';
 
 export function Stats() {
   const [first, second] = stats.items;
@@ -14,7 +14,11 @@ export function Stats() {
             <p className="mx-auto max-w-[26ch] text-[0.95rem] opacity-75">{first.label}</p>
           </div>
 
-          <Placeholder label={stats.photoPlaceholder} className="aspect-[4/3] max-[780px]:order-first" />
+          <img
+            src={recepcaoPhoto}
+            alt={stats.photoPlaceholder}
+            className="aspect-[4/3] rounded object-cover object-[50%_35%] max-[780px]:order-first"
+          />
 
           <div>
             <span className="mb-3 block font-serif text-[clamp(2.4rem,5vw,3.6rem)] leading-none text-marsala">

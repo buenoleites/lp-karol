@@ -1,6 +1,6 @@
 import { security } from '../data/content';
-import { Placeholder } from './Placeholder';
 import { WhatsAppCta } from './WhatsAppCta';
+import consultorioPhoto from '../assets/consultorio.png';
 
 export function Security() {
   return (
@@ -28,9 +28,10 @@ export function Security() {
             </WhatsAppCta>
           </div>
 
-          <Placeholder
-            label={security.photoPlaceholder}
-            className="col-span-3 aspect-[21/6] max-[900px]:col-span-1 max-[900px]:aspect-[4/3]"
+          <img
+            src={consultorioPhoto}
+            alt={security.photoPlaceholder}
+            className="col-span-3 aspect-[21/6] w-full rounded object-cover object-[50%_75%] max-[900px]:col-span-1 max-[900px]:aspect-[4/3]"
           />
         </div>
       </div>
