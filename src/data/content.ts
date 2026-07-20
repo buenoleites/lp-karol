@@ -2,7 +2,7 @@
 // separado da apresentação, para facilitar revisões de conteúdo sem tocar em JSX.
 
 export const whatsapp = {
-  phoneNumber: '5541999632542',
+  phoneNumber: '5541998002602',
   messagesByContext: {
     menu: 'Olá, vim pelo site e quero avaliar meu caso para Ultraformer.',
     hero: 'Olá, vim pelo site e quero avaliar meu caso para Ultraformer.',
