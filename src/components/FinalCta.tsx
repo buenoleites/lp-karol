@@ -1,7 +1,8 @@
-import { finalCta } from '../data/content';
+import { useContent } from '../data/ContentContext';
 import { WhatsAppCta } from './WhatsAppCta';
 
 export function FinalCta() {
+  const { finalCta } = useContent();
   return (
     <section className="bg-champagne py-24 text-center max-[640px]:py-16">
       <div className="container-page section-heading-center">

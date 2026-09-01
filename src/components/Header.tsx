@@ -1,8 +1,9 @@
-import { nav, wordmark } from '../data/content';
-import logo from '../assets/logo.png';
+import { useContent } from '../data/ContentContext';
 import { WhatsAppCta } from './WhatsAppCta';
+import { WhatsAppIcon } from './WhatsAppIcon';
 
 export function Header() {
+  const { nav, wordmark, logo } = useContent();
   return (
     <header className="sticky top-0 z-[100] border-b border-wine/10 bg-offwhite/90 backdrop-blur-md">
       <div className="container-page flex items-center justify-between py-[18px]">
@@ -23,8 +24,9 @@ export function Header() {
         </nav>
         <WhatsAppCta
           context="menu"
-          className="hidden rounded-full border border-marsala px-[22px] py-[10px] text-[0.85rem] text-marsala transition-colors hover:bg-marsala hover:text-offwhite min-[641px]:inline-block"
+          className="hidden items-center gap-2 rounded-full bg-whatsapp px-6 py-[11px] text-[0.9rem] font-semibold text-white shadow-[0_6px_20px_rgba(37,211,102,0.45)] transition-all duration-200 hover:-translate-y-px hover:bg-whatsappDark hover:shadow-[0_8px_26px_rgba(37,211,102,0.6)] min-[641px]:inline-flex"
         >
+          <WhatsAppIcon className="h-[18px] w-[18px]" />
           Falar no WhatsApp
         </WhatsAppCta>
       </div>

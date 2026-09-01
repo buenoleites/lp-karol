@@ -1,10 +1,12 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { faq } from '../data/content';
+import { useContent } from '../data/ContentContext';
 import { Reveal } from './Reveal';
 
 export function FAQ() {
+  const { faq } = useContent();
   const [openIndex, setOpenIndex] = useState<number>(0);
+  if (!faq) return null;
 
   return (
     <section id="duvidas" className="py-24 max-[640px]:py-16">

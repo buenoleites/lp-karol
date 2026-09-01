@@ -1,6 +1,7 @@
-import { trustBar } from '../data/content';
+import { useContent } from '../data/ContentContext';
 
 export function TrustBar() {
+  const { trustBar } = useContent();
   return (
     <section className="bg-wine py-[18px] text-offwhite">
       <div className="container-page flex flex-wrap items-center justify-center gap-5 text-center text-[0.85rem] tracking-wide max-[640px]:flex-col max-[640px]:gap-1.5">

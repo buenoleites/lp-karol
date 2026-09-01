@@ -1,33 +1,36 @@
-import { stats } from '../data/content';
-import recepcaoPhoto from '../assets/recepcao1.png';
+import { useContent } from '../data/ContentContext';
 
 export function Stats() {
-  const [first, second] = stats.items;
+  const { stats } = useContent();
   return (
-    <section className="py-24 max-[640px]:py-16">
-      <div className="container-page">
-        <div className="grid grid-cols-[1fr_1.2fr_1fr] items-center gap-10 text-center max-[780px]:grid-cols-1">
-          <div>
-            <span className="mb-3 block font-serif text-[clamp(2.4rem,5vw,3.6rem)] leading-none text-marsala">
-              {first.number}
-            </span>
-            <p className="mx-auto max-w-[26ch] text-[0.95rem] opacity-75">{first.label}</p>
-          </div>
+    <section className="relative overflow-hidden">
+      {stats.photo ? (
+        <img
+          src={stats.photo}
+          alt={stats.photoPlaceholder}
+          className="absolute inset-0 h-full w-full object-cover object-[50%_35%]"
+        />
+      ) : (
+        <div aria-hidden="true" className="absolute inset-0 bg-marsala" />
+      )}
+      <div aria-hidden="true" className="absolute inset-0 bg-wine/70" />
 
-          <img
-            src={recepcaoPhoto}
-            alt={stats.photoPlaceholder}
-            className="aspect-[4/3] rounded object-cover object-[50%_35%] max-[780px]:order-first"
-          />
-
-          <div>
-            <span className="mb-3 block font-serif text-[clamp(2.4rem,5vw,3.6rem)] leading-none text-marsala">
-              {second.number}
-            </span>
-            <p className="mx-auto max-w-[26ch] text-[0.95rem] opacity-75">{second.label}</p>
-          </div>
+      <div className="container-page relative z-[2] py-24 text-center max-[640px]:py-16">
+        <div className="mx-auto grid max-w-[820px] grid-cols-2 gap-10 max-[640px]:grid-cols-1 max-[640px]:gap-12">
+          {stats.items.map((item) => (
+            <div key={item.number}>
+              <span className="mb-3 block font-serif text-[clamp(2.6rem,6vw,4rem)] leading-none text-champagne">
+                {item.number}
+              </span>
+              <p className="mx-auto max-w-[26ch] text-[0.95rem] text-offwhite opacity-85">{item.label}</p>
+            </div>
+          ))}
         </div>
-        <p className="mx-auto mt-8 max-w-[60ch] text-center text-[0.9rem] opacity-65">{stats.note}</p>
+
+        <address className="mx-auto mt-14 max-w-[40ch] not-italic max-[640px]:mt-10">
+          <span className="eyebrow eyebrow-light mb-2">{stats.addressLabel}</span>
+          <p className="font-serif text-[1.15rem] leading-snug text-offwhite">{stats.address}</p>
+        </address>
       </div>
     </section>
   );

@@ -1,7 +1,8 @@
-import { footer } from '../data/content';
+import { useContent } from '../data/ContentContext';
 import { Monogram } from './Monogram';
 
 export function Footer() {
+  const { footer } = useContent();
   return (
     <footer className="bg-wine py-8 text-offwhite">
       <div className="container-page flex flex-wrap items-center justify-between gap-2 text-[0.85rem] opacity-80 max-[640px]:flex-col max-[640px]:text-center">

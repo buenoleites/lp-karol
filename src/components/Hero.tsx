@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
-import { hero } from '../data/content';
-import heroPhoto from '../assets/hero.png';
+import { useContent } from '../data/ContentContext';
+import { Placeholder } from './Placeholder';
 import { RotatingBadge } from './RotatingBadge';
 import { WhatsAppCta } from './WhatsAppCta';
 
@@ -17,6 +17,7 @@ const item = {
 };
 
 export function Hero() {
+  const { hero } = useContent();
   return (
     <section className="grid grid-cols-[1.05fr_1fr] items-stretch max-[900px]:grid-cols-1">
       <motion.div
@@ -61,12 +62,16 @@ export function Hero() {
         </motion.p>
       </motion.div>
 
-      <div className="relative min-h-[42vh] max-[900px]:order-1 min-[901px]:min-h-[86vh]">
-        <img
-          src={heroPhoto}
-          alt="Dra. Karol"
-          className="absolute inset-0 h-full w-full object-cover object-top"
-        />
+      <div className="relative max-[900px]:order-1 max-[900px]:aspect-[4/5] min-[901px]:min-h-[86vh]">
+        {hero.photo ? (
+          <img
+            src={hero.photo}
+            alt={hero.photoPlaceholder}
+            className="absolute inset-0 h-full w-full object-cover object-top"
+          />
+        ) : (
+          <Placeholder label={hero.photoPlaceholder} className="absolute inset-0 h-full w-full border-0 border-l" />
+        )}
       </div>
     </section>
   );
