@@ -103,7 +103,14 @@ export function ConcernSelector() {
               </motion.div>
             </AnimatePresence>
 
-            <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-wine/85 via-wine/10 to-transparent p-6">
+            {/* Com `contain`, a legenda cai sobre a faixa nude do letterbox: inverte para texto escuro. */}
+            <div
+              className={`absolute inset-x-0 bottom-0 bg-gradient-to-t p-6 ${
+                isContain(active)
+                  ? 'from-nude via-nude/85 to-transparent'
+                  : 'from-wine/85 via-wine/10 to-transparent'
+              }`}
+            >
               <AnimatePresence mode="wait">
                 <motion.p
                   key={active.title}
@@ -111,7 +118,7 @@ export function ConcernSelector() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -8 }}
                   transition={{ duration: 0.25 }}
-                  className="text-offwhite"
+                  className={isContain(active) ? 'text-graphite' : 'text-offwhite'}
                 >
                   {active.text}
                 </motion.p>

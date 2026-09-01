@@ -2,15 +2,20 @@
 // Baseada no briefing "LANDING PAGES MES 03 — GLÚTEOS". Frases de apoio (fora do briefing)
 // seguem o tom consultivo da LP do Ultraformer e devem ser validadas antes de publicar.
 //
-// Fotos pendentes (renderizam <Placeholder> até chegarem): preencher `photo:` com o import
-// do arquivo em `src/assets/` — hero (FOTO 1), concernSelector (FOTO 2, opcional),
-// security/benefícios (FOTO 4) e results (FOTO 6).
+// Todas as seções já têm foto real; nenhum <Placeholder> sobra na página.
 
 import type { SiteContent } from './types';
 import logo from '../assets/logo.png';
 import recepcaoPhoto from '../assets/recepcao1.png';
 import clinicaPhoto from '../assets/clinica.jpg';
 import atendimentoPhoto from '../assets/atendimento.jpg';
+import heroResultadoPhoto from '../assets/gluteos-hero-resultado.jpg';
+import beneficiosResultadoPhoto from '../assets/gluteos-beneficios-resultado.jpg';
+import concernFlacidezPhoto from '../assets/gluteos-concern-flacidez.jpg';
+import concernFaltaVolumePhoto from '../assets/gluteos-concern-falta-volume.jpg';
+import avaliacaoGluteoPrint from '../assets/avaliacao-gluteo.jpg';
+import avaliacaoFlaviaPrint from '../assets/avaliacao-flavia.jpg';
+import avaliacaoFrancielliPrint from '../assets/avaliacao-francielli.jpg';
 
 export const content: SiteContent = {
   slug: 'gluteos',
@@ -50,7 +55,8 @@ export const content: SiteContent = {
     ctaLabel: 'Quero melhorar meus glúteos',
     badgeText: 'AGENDE SUA AVALIAÇÃO',
     microcopy: 'Atendimento com a Dra. Karol • Protocolo personalizado',
-    photoPlaceholder: 'FOTO 1 — Resultado real (antes/depois de glúteos)',
+    photo: heroResultadoPhoto,
+    photoPlaceholder: 'Resultado de harmonização glútea',
   },
 
   trustBar: ['Sem cirurgia', 'Avaliação individualizada', 'Atendimento no Centro de Curitiba'],
@@ -87,17 +93,23 @@ export const content: SiteContent = {
       {
         title: 'Falta de volume',
         text: 'Glúteos com pouca projeção, mesmo com treino e alimentação em dia.',
-        photoPlaceholder: 'FOTO 2 — Imagem ilustrativa (opcional)',
+        photo: concernFaltaVolumePhoto,
+        photoFit: 'contain',
+        photoPlaceholder: 'Antes/depois — falta de volume',
       },
       {
         title: 'Flacidez',
         text: 'Pele e contorno com menos sustentação e firmeza.',
-        photoPlaceholder: 'FOTO 2 — Imagem ilustrativa (opcional)',
+        photo: concernFlacidezPhoto,
+        photoFit: 'contain',
+        photoPlaceholder: 'Antes/depois — flacidez',
       },
       {
         title: 'Dificuldade em modelar',
         text: 'Formato que não responde ao exercício e pede um contorno mais definido.',
-        photoPlaceholder: 'FOTO 2 — Imagem ilustrativa (opcional)',
+        photo: concernFaltaVolumePhoto,
+        photoFit: 'contain',
+        photoPlaceholder: 'Antes/depois — dificuldade em modelar',
       },
     ],
     note: 'A indicação depende da avaliação individual, da anatomia e do objetivo estético de cada paciente.',
@@ -130,7 +142,8 @@ export const content: SiteContent = {
       { title: 'Contorno mais bonito', text: 'Formato harmônico e proporcional ao restante do corpo.' },
       { title: 'Sem cirurgia', text: 'Sem cortes, com indicação individualizada e resultado progressivo.' },
     ],
-    photoPlaceholder: 'FOTO 4 — Antes e depois (glúteos)',
+    photo: beneficiosResultadoPhoto,
+    photoPlaceholder: 'Resultado de harmonização glútea',
     ctaCell: {
       title: 'Pronta para avaliar seu caso?',
       ctaLabel: 'Quero melhorar meus glúteos',
@@ -143,12 +156,18 @@ export const content: SiteContent = {
     eyebrow: 'Prova social',
     title: 'O que as pacientes dizem',
     subtitle: 'Avaliação máxima no Google e pacientes que recomendam.',
-    rating: { stars: 5, label: '5 estrelas no Google' },
+    rating: { stars: 5, label: '5,0 no Google · 109 avaliações' },
+    // Transcrição literal da avaliação da Coach Manu no Google (print em `photos[0]`).
     quote:
-      'Gostaria de deixar meu agradecimento à Dra. Karol. Ela é uma profissional extremamente atenciosa, ouve com paciência e explica tudo com muita clareza. Passa muita segurança e acolhimento. Recomendo de olhos fechados.',
-    author: 'Vitoria M.',
+      'Profissional incrível! Simplesmente transformou meu glúteo! Ela ouviu exatamente a minha dor e o que eu queria e conseguiu deixar meu bumbum mais lindo do que ele já era!',
+    author: 'Coach Manu',
     ctaLabel: 'Quero melhorar meus glúteos',
-    photoPlaceholder: 'FOTO 6 — Prints reais de avaliações do Google',
+    photos: [
+      { src: avaliacaoGluteoPrint, alt: 'Avaliação 5 estrelas no Google — Coach Manu' },
+      { src: avaliacaoFlaviaPrint, alt: 'Avaliação 5 estrelas no Google — Flávia Rodrigues da Rosa' },
+      { src: avaliacaoFrancielliPrint, alt: 'Avaliação 5 estrelas no Google — Francielli Borges' },
+    ],
+    photoPlaceholder: 'Prints reais de avaliações do Google',
   },
 
   // 5. Valores — ⚠ valor marcado no briefing como "ajustar com você"

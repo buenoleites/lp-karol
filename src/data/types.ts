@@ -100,6 +100,8 @@ export interface ResultsContent {
   author: string;
   ctaLabel: string;
   photo?: string;
+  /** Prints de avaliações que se alternam no lugar da foto única. */
+  photos?: { src: string; alt: string }[];
   photoPlaceholder: string;
 }
 
