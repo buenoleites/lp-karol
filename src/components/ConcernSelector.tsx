@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { concernSelector } from '../data/content';
+import { useContent } from '../data/ContentContext';
+import type { ConcernCategory as Category } from '../data/types';
 import { Placeholder } from './Placeholder';
 
 /**
@@ -9,7 +10,22 @@ import { Placeholder } from './Placeholder';
  * individualizada: cada queixa tem seu próprio contexto), inspirado no menu
  * "Nos studios d'expertise" do Beaujour.
  */
+/** Fotos largas (antes/depois 2:1) são exibidas inteiras em vez de cortadas. */
+function isContain(category: Category) {
+  return category.photoFit === 'contain';
+}
+
+/** Foto real da categoria quando existe; placeholder enquanto o material não chega. */
+function CategoryVisual({ category, className }: { category: Category; className: string }) {
+  if (!category.photo) {
+    return <Placeholder label={category.photoPlaceholder} className={className} />;
+  }
+  const fit = isContain(category) ? 'object-contain bg-nude' : 'object-cover';
+  return <img src={category.photo} alt={category.photoPlaceholder} className={`${fit} object-center ${className}`} />;
+}
+
 export function ConcernSelector() {
+  const { concernSelector } = useContent();
   const [activeIndex, setActiveIndex] = useState(0);
   const active = concernSelector.categories[activeIndex];
 
@@ -58,7 +74,10 @@ export function ConcernSelector() {
                           className="overflow-hidden"
                         >
                           <div className="pb-6">
-                            <Placeholder label={category.photoPlaceholder} className="mb-4 aspect-[4/3] rounded" />
+                            <CategoryVisual
+                              category={category}
+                              className={`mb-4 w-full rounded ${isContain(category) ? 'aspect-[2/1]' : 'aspect-square'}`}
+                            />
                             <p className="max-w-[50ch] font-sans text-graphite opacity-80">{category.text}</p>
                           </div>
                         </motion.div>
@@ -70,7 +89,7 @@ export function ConcernSelector() {
             })}
           </ul>
 
-          <div className="relative hidden aspect-[4/5] overflow-hidden rounded-xl min-[861px]:block">
+          <div className="relative hidden aspect-square overflow-hidden rounded-xl min-[861px]:block">
             <AnimatePresence mode="wait">
               <motion.div
                 key={active.title}
@@ -80,7 +99,7 @@ export function ConcernSelector() {
                 transition={{ duration: 0.35, ease: 'easeInOut' }}
                 className="absolute inset-0"
               >
-                <Placeholder label={active.photoPlaceholder} className="h-full w-full rounded-xl border-none" />
+                <CategoryVisual category={active} className="h-full w-full rounded-xl border-none" />
               </motion.div>
             </AnimatePresence>
 

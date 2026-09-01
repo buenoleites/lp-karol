@@ -1,23 +1,27 @@
 import { MotionConfig } from 'framer-motion';
 import { ContentProvider } from './data/ContentContext';
-import { content } from './data/content';
+import { content } from './data/content.gluteos';
 import { ScrollProgressTicks } from './components/ScrollProgressTicks';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { TrustBar } from './components/TrustBar';
-import { Stats } from './components/Stats';
-import { Procedure } from './components/Procedure';
 import { ConcernSelector } from './components/ConcernSelector';
-import { Authority } from './components/Authority';
+import { Procedure } from './components/Procedure';
 import { Security } from './components/Security';
+import { Pricing } from './components/Pricing';
+import { Authority } from './components/Authority';
 import { Results } from './components/Results';
-import { FAQ } from './components/FAQ';
+import { Stats } from './components/Stats';
 import { FinalCta } from './components/FinalCta';
 import { Footer } from './components/Footer';
 import { WhatsAppFab } from './components/WhatsAppFab';
 
-/** LP Ultraformer — servida em `/`. */
-export default function App() {
+/**
+ * LP Harmonização Glútea — servida em `/gluteos/`.
+ * Ordem das dobras segue o briefing: cabeçalho → problema → solução → benefícios →
+ * valores → autoridade → prova social → localização → CTA final.
+ */
+export default function AppGluteos() {
   return (
     <ContentProvider content={content}>
       <MotionConfig reducedMotion="user">
@@ -26,13 +30,13 @@ export default function App() {
         <main>
           <Hero />
           <TrustBar />
-          <Stats />
-          <Procedure />
           <ConcernSelector />
-          <Authority />
+          <Procedure />
           <Security />
+          <Pricing />
+          <Authority />
           <Results />
-          <FAQ />
+          <Stats />
           <FinalCta />
         </main>
         <Footer />

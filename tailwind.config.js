@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: ['./index.html', './src/**/*.{js,ts,jsx,tsx}'],
+  content: ['./index.html', './gluteos/index.html', './src/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -10,6 +10,8 @@ export default {
         nude: '#EFE7DF',
         offwhite: '#FAF7F5',
         graphite: '#1F1A1B',
+        whatsapp: '#25D366',
+        whatsappDark: '#1EBE5D',
       },
       fontFamily: {
         serif: ['Fraunces', 'Georgia', 'serif'],
